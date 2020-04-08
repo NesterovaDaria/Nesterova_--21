@@ -24,6 +24,8 @@ namespace WindowsFormsAppCruiser
         public MultiLevelParking(int countStages, int pictureWidth, int pictureHeight)
         {
             parkingStages = new List<Parking<ITransport>>();
+            this.pictureWidth = pictureWidth;
+            this.pictureHeight = pictureHeight;
             for (int i = 0; i < countStages; ++i)
             {
                 parkingStages.Add(new Parking<ITransport>(countPlaces, pictureWidth, pictureHeight));
@@ -59,7 +61,7 @@ namespace WindowsFormsAppCruiser
                         if (ship != null)
                         {
                             //если место не пустое
-                            //Записываем тип мшаины
+                            //Записываем тип 
                             if (ship.GetType().Name == "Ship")
                             {
                                 sw.Write(i + ":Ship:");
@@ -101,15 +103,15 @@ namespace WindowsFormsAppCruiser
                         }
                         if ((strs.Length == 3) && (park != null))
                         {
-                            var sss = strs[2].Split(';');
-                            if (strs[1] == "Ship" && sss.Length == 3)
-                            {
-                                int n = park + new Ship(strs[2]);
-                            }
-                            else if (strs[1] == "Cruiser" && sss.Length == 9)
-                            {
-                                int n = park + new Cruiser(strs[2]);
-                            }
+                              var sss = strs[2].Split(';');
+                                if (strs[1] == "Ship" && sss.Length == 3)
+                                {
+                                    int n = park + new Ship(strs[2]);
+                                }
+                                else if (strs[1] == "Cruiser" && sss.Length == 9)
+                                {
+                                    int n = park + new Cruiser(strs[2]);
+                                }
                         }
                     }
                 }
@@ -128,6 +130,11 @@ namespace WindowsFormsAppCruiser
         public int count()
         {
             return parkingStages.Count();
+        }
+        /// Сортировка уровней
+        public void Sort()
+        {
+            parkingStages.Sort();
         }
     }
 }
