@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace WindowsFormsAppCruiser
 {
-    public class Cruiser : Ship
+    public class Cruiser : Ship, IComparable<Cruiser>, IEquatable<Cruiser>
     {
         public Color DopColor { private set; get; }
         /// Дополнительный цвет
@@ -118,6 +118,98 @@ namespace WindowsFormsAppCruiser
         {
             return base.ToString() + ";" + DopColor.Name + ";" + DopColor1.Name + ";" +
            Orudie + ";" + Truba + ";" + Window + ";" + Flag;
+        }
+        public int CompareTo(Cruiser other)
+        {
+            var res = (this is Ship).CompareTo(other is Ship);
+            if (res != 0)
+            {
+                return res;
+            }
+            if (DopColor != other.DopColor)
+            {
+                DopColor.Name.CompareTo(other.DopColor.Name);
+            }
+            if (DopColor1 != other.DopColor1)
+            {
+                DopColor1.Name.CompareTo(other.DopColor1.Name);
+            }
+            if (Orudie != other.Orudie)
+            {
+                return Orudie.CompareTo(other.Orudie);
+            }
+            if (Truba != other.Truba)
+            {
+                return Truba.CompareTo(other.Truba);
+            }
+            if (Window != other.Window)
+            {
+                return Window.CompareTo(other.Window);
+            }
+            if (Flag != other.Flag)
+            {
+                return Flag.CompareTo(other.Flag);
+            }
+            return 0;
+        }
+        public bool Equals(Cruiser other)
+        {
+            var res = (this as Ship).Equals(other as Ship);
+            if (!res)
+            {
+                return res;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (DopColor1 != other.DopColor1)
+            {
+                return false;
+            }
+                         
+            if (Orudie != other.Orudie)
+            {
+                return false;
+            }
+            if (Truba != other.Truba)
+            {
+                return false;
+            }
+            if (Window != other.Window)
+            {
+                return false;
+            }
+            if (Flag != other.Flag)
+            {
+                return false;
+            }
+             return true;
+        }
+        /// Перегрузка метода от object
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Cruiser shepObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(shepObj);
+            }
+        }
+        /// Перегрузка метода от object
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

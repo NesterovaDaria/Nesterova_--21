@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsAppCruiser
 {
-    public class Ship : Vehicle
+    public class Ship : Vehicle, IComparable<Ship>, IEquatable<Ship>
     {
         /// Ширина отрисовки автомобиля
         protected const int avWidth = 100;
@@ -89,6 +89,72 @@ namespace WindowsFormsAppCruiser
         public override string ToString()
         {
             return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
+        }
+        public int CompareTo(Ship other)
+        {
+            if (other == null)
+            {
+                return 1;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return MaxSpeed.CompareTo(other.MaxSpeed);
+            }
+            if (Weight != other.Weight)
+            {
+                return Weight.CompareTo(other.Weight);
+            }
+            if (MainColor != other.MainColor)
+            {
+                MainColor.Name.CompareTo(other.MainColor.Name);
+            }
+            return 0;
+        }
+        /// Метод интерфейса IEquatable для класса Ship
+        public bool Equals(Ship other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// Перегрузка метода от object
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Ship shepObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(shepObj);
+            }
+        }
+        /// Перегрузка метода от object
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }
