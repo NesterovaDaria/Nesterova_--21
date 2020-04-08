@@ -32,5 +32,13 @@ namespace WindowsFormsAppCruiser
         }
         public abstract void Draw(Graphics g);
         public abstract void MoveTransport(Direction direction);
+        public void SetMainColor(Color color)
+        {
+            MainColor = color;
+        }
+        public String GetMainColor()
+        {
+            return MainColor.Name;
+        }
     }
 }
