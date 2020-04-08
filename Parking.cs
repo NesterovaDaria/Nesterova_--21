@@ -26,6 +26,7 @@ namespace WindowsFormsAppCruiser
         {
             if (p._places.Count == p._maxCount)
             {
+                //место на парковке переполнено
                 return -1;
             }
             for (int i = 0; i < p._maxCount; i++)
@@ -77,6 +78,27 @@ namespace WindowsFormsAppCruiser
                         i * _placeSizeWidth + 100, j * _placeSizeHeight);
                 }
                 g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, 400);
+            }
+        }
+        /// Индексатор
+        public T this[int ind]
+        {
+            get
+            {
+                if (_places.ContainsKey(ind))
+                {
+                    return _places[ind];
+                }
+                return null;
+            }
+            set
+            {
+                if (CheckFreePlace(ind))
+                {
+                    _places.Add(ind, value);
+                    _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 5, ind % 5
+                    * _placeSizeHeight + 15, PictureWidth, PictureHeight);
+                }
             }
         }
     }
