@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsAppCruiser
 {
-    interface ITransport
+    public interface ITransport
     {
         /// Установка позиции
         /// <param name="x">Координата X</param>
