@@ -26,8 +26,7 @@ namespace WindowsFormsAppCruiser
         {
             if (p._places.Count == p._maxCount)
             {
-                //место на парковке переполнено
-                return -1;
+                throw new ParkingOverflowException();
             }
             for (int i = 0; i < p._maxCount; i++)
             {
@@ -48,7 +47,7 @@ namespace WindowsFormsAppCruiser
                 p._places.Remove(index);
                 return shep;
             }
-            return null;
+            throw new ParkingNotFoundException(index);
         }
         private bool CheckFreePlace(int index)
         {
@@ -89,7 +88,7 @@ namespace WindowsFormsAppCruiser
                 {
                     return _places[ind];
                 }
-                return null;
+                throw new ParkingNotFoundException(ind);
             }
             set
             {
@@ -98,6 +97,10 @@ namespace WindowsFormsAppCruiser
                     _places.Add(ind, value);
                     _places[ind].SetPosition(5 + ind / 5 * _placeSizeWidth + 5, ind % 5
                     * _placeSizeHeight + 15, PictureWidth, PictureHeight);
+                }
+                else
+                {
+                    throw new ParkingOccupiedPlaceException(ind);
                 }
             }
         }
