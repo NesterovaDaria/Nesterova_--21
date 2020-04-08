@@ -85,8 +85,10 @@ namespace WindowsFormsAppCruiser
                 g.DrawLine(fp, _startPosX + 6, _startPosY, _startPosX + 6, _startPosY - 18);
                 g.FillRectangle(spoiler, _startPosX - 6, _startPosY - 18, 12, 9);
             }
-
-
+        }
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
         }
     }
 }
