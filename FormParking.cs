@@ -44,6 +44,17 @@ namespace WindowsFormsAppCruiser
                 parking[listBoxLevels.SelectedIndex].Draw(gr);
                 pictureBoxParking.Image = bmp;
             }
+            else
+            {
+                Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                gr.Clear(Color.White);
+                pictureBoxParking.Image = bmp;
+            }
+        }
+        private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
         }
         private void buttonTakeShip_Click(object sender, EventArgs e)
         {
@@ -80,10 +91,7 @@ namespace WindowsFormsAppCruiser
                 }
             }
         }
-        private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Draw();
-        }
+        
         private void buttonSet_Click(object sender, EventArgs e)
         {
             form = new FormShipConfig();
@@ -106,6 +114,11 @@ namespace WindowsFormsAppCruiser
                     MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
                     logger.Error("Переполнение");
+                }
+                catch (ParkingAlreadyHaveException ex)
+                {
+                    MessageBox.Show(ex.Message, "Дублирование", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
@@ -161,6 +174,13 @@ namespace WindowsFormsAppCruiser
                 }
                 Draw();
             }
+        }
+        /// Обработка нажатия кнопки "Сортировка"
+        private void buttonSort_Click(object sender, EventArgs e)
+        {
+            parking.Sort();
+            Draw();
+            logger.Info("Сортировка уровней");
         }
     }
 }
