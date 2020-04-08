@@ -21,6 +21,7 @@ namespace WindowsFormsAppCruiser
         /// <param name="direction">Направление</param>
         void MoveTransport(Direction direction);
         void Draw(Graphics g);
-
+        void SetMainColor(Color color);
+        String GetMainColor();
     }
 }
