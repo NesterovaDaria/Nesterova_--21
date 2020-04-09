@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCruiser));
-            this.Create = new System.Windows.Forms.Button();
+            this.CreateShip = new System.Windows.Forms.Button();
+            this.CreateCruiser = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
@@ -38,15 +39,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCruiser)).BeginInit();
             this.SuspendLayout();
             // 
-            // Create
+            // CreateShep
             // 
-            this.Create.Location = new System.Drawing.Point(0, 0);
-            this.Create.Name = "Create";
-            this.Create.Size = new System.Drawing.Size(75, 23);
-            this.Create.TabIndex = 6;
-            this.Create.Text = "Create";
-            this.Create.UseVisualStyleBackColor = true;
-            this.Create.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.CreateShip.Location = new System.Drawing.Point(0, 0);
+            this.CreateShip.Name = "CreateShep";
+            this.CreateShip.Size = new System.Drawing.Size(75, 23);
+            this.CreateShip.TabIndex = 6;
+            this.CreateShip.Text = "Ship";
+            this.CreateShip.UseVisualStyleBackColor = true;
+            this.CreateShip.Click += new System.EventHandler(this.CreateShip_Click);
             // 
             // buttonLeft
             // 
@@ -114,18 +115,30 @@
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonUp);
-            this.Controls.Add(this.Create);
+            this.Controls.Add(this.CreateShip);
+            this.Controls.Add(this.CreateCruiser);
             this.Controls.Add(this.pictureBoxCruiser);
             this.Name = "FormCruiser";
             this.Text = "Крейсер";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCruiser)).EndInit();
             this.ResumeLayout(false);
+            // 
+            // CreateCruiser
+            // 
+            this.CreateCruiser.Location = new System.Drawing.Point(81, 0);
+            this.CreateCruiser.Name = "CreateCruiser";
+            this.CreateCruiser.Size = new System.Drawing.Size(75, 23);
+            this.CreateCruiser.TabIndex = 11;
+            this.CreateCruiser.Text = "Cruiser";
+            this.CreateCruiser.UseVisualStyleBackColor = true;
+            this.CreateCruiser.Click += new System.EventHandler(this.CreateCruiser_Click);
 
         }
 
         #endregion
         private System.Windows.Forms.PictureBox pictureBoxCruiser;
-        private System.Windows.Forms.Button Create;
+        private System.Windows.Forms.Button CreateShip;
+        private System.Windows.Forms.Button CreateCruiser;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonRight;
