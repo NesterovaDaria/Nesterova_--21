@@ -28,42 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBoxCruiser = new System.Windows.Forms.PictureBox();
-            this.Shep = new System.Windows.Forms.Button();
+            this.Ship = new System.Windows.Forms.Button();
             this.Cruiser = new System.Windows.Forms.Button();
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.labelTake = new System.Windows.Forms.Label();
             this.labelMesto = new System.Windows.Forms.Label();
             this.TakeOut = new System.Windows.Forms.Button();
             this.pictureBoxTakeShip = new System.Windows.Forms.PictureBox();
+            this.groupBoxTake = new System.Windows.Forms.GroupBox();
+            this.groupBoxLevels = new System.Windows.Forms.GroupBox();
+            this.listBoxLevels = new System.Windows.Forms.ListBox();
             this.pictureBoxParking = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCruiser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeShip)).BeginInit();
+            this.groupBoxLevels.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBoxAvianos
+            // Ship
             // 
-            this.pictureBoxCruiser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxCruiser.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxCruiser.Name = "pictureBoxCruiser";
-            this.pictureBoxCruiser.Size = new System.Drawing.Size(884, 461);
-            this.pictureBoxCruiser.TabIndex = 5;
-            this.pictureBoxCruiser.TabStop = false;
-            // 
-            // Shep
-            // 
-            this.Shep.Location = new System.Drawing.Point(809, 0);
-            this.Shep.Name = "Shep";
-            this.Shep.Size = new System.Drawing.Size(75, 23);
-            this.Shep.TabIndex = 6;
-            this.Shep.Text = "Shep";
-            this.Shep.UseVisualStyleBackColor = true;
-            this.Shep.Click += new System.EventHandler(this.buttonSetShip_Click);
+            this.Ship.Location = new System.Drawing.Point(34, 153);
+            this.Ship.Name = "Ship";
+            this.Ship.Size = new System.Drawing.Size(75, 23);
+            this.Ship.TabIndex = 6;
+            this.Ship.Text = "Shep";
+            this.Ship.UseVisualStyleBackColor = true;
+            this.Ship.Click += new System.EventHandler(this.buttonSetShip_Click);
             // 
             // Cruiser
             // 
-            this.Cruiser.Location = new System.Drawing.Point(809, 29);
+            this.Cruiser.Location = new System.Drawing.Point(34, 195);
             this.Cruiser.Name = "Cruiser";
             this.Cruiser.Size = new System.Drawing.Size(75, 23);
             this.Cruiser.TabIndex = 11;
@@ -75,24 +67,15 @@
             // 
             this.maskedTextBox.Location = new System.Drawing.Point(753, 290);
             this.maskedTextBox.Name = "maskedTextBox";
-            this.maskedTextBox.Size = new System.Drawing.Size(96, 20);
+            this.maskedTextBox.Size = new System.Drawing.Size(96, 22);
             this.maskedTextBox.TabIndex = 12;
-            // 
-            // labelTake
-            // 
-            this.labelTake.AutoSize = true;
-            this.labelTake.Location = new System.Drawing.Point(750, 261);
-            this.labelTake.Name = "labelTake";
-            this.labelTake.Size = new System.Drawing.Size(87, 13);
-            this.labelTake.TabIndex = 13;
-            this.labelTake.Text = "Заберите судно";
             // 
             // labelMesto
             // 
             this.labelMesto.AutoSize = true;
             this.labelMesto.Location = new System.Drawing.Point(750, 274);
             this.labelMesto.Name = "labelMesto";
-            this.labelMesto.Size = new System.Drawing.Size(39, 13);
+            this.labelMesto.Size = new System.Drawing.Size(49, 17);
             this.labelMesto.TabIndex = 14;
             this.labelMesto.Text = "Место";
             // 
@@ -106,13 +89,44 @@
             this.TakeOut.UseVisualStyleBackColor = true;
             this.TakeOut.Click += new System.EventHandler(this.buttonTakeShip_Click);
             // 
-            // pictureBoxTakeShep
+            // pictureBoxTakeShip
             // 
             this.pictureBoxTakeShip.Location = new System.Drawing.Point(746, 358);
-            this.pictureBoxTakeShip.Name = "pictureBoxTakeShep";
+            this.pictureBoxTakeShip.Name = "pictureBoxTakeShip";
             this.pictureBoxTakeShip.Size = new System.Drawing.Size(126, 91);
             this.pictureBoxTakeShip.TabIndex = 16;
             this.pictureBoxTakeShip.TabStop = false;
+            // 
+            // groupBoxTake
+            // 
+            this.groupBoxTake.Location = new System.Drawing.Point(740, 255);
+            this.groupBoxTake.Name = "groupBoxTake";
+            this.groupBoxTake.Size = new System.Drawing.Size(144, 194);
+            this.groupBoxTake.TabIndex = 23;
+            this.groupBoxTake.TabStop = false;
+            this.groupBoxTake.Text = "Забрать";
+            // 
+            // groupBoxLevels
+            // 
+            this.groupBoxLevels.Controls.Add(this.listBoxLevels);
+            this.groupBoxLevels.Controls.Add(this.Cruiser);
+            this.groupBoxLevels.Controls.Add(this.Ship);
+            this.groupBoxLevels.Location = new System.Drawing.Point(740, 2);
+            this.groupBoxLevels.Name = "groupBoxLevels";
+            this.groupBoxLevels.Size = new System.Drawing.Size(144, 237);
+            this.groupBoxLevels.TabIndex = 22;
+            this.groupBoxLevels.TabStop = false;
+            this.groupBoxLevels.Text = "Уровни";
+            // 
+            // listBoxLevels
+            // 
+            this.listBoxLevels.FormattingEnabled = true;
+            this.listBoxLevels.ItemHeight = 16;
+            this.listBoxLevels.Location = new System.Drawing.Point(12, 21);
+            this.listBoxLevels.Name = "listBoxLevels";
+            this.listBoxLevels.Size = new System.Drawing.Size(120, 116);
+            this.listBoxLevels.TabIndex = 0;
+            this.listBoxLevels.Click += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
             // 
             // pictureBoxParking
             // 
@@ -125,20 +139,18 @@
             // FormParking
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(884, 461);
+            this.ClientSize = new System.Drawing.Size(886, 461);
             this.Controls.Add(this.pictureBoxParking);
             this.Controls.Add(this.pictureBoxTakeShip);
             this.Controls.Add(this.TakeOut);
             this.Controls.Add(this.labelMesto);
-            this.Controls.Add(this.labelTake);
             this.Controls.Add(this.maskedTextBox);
-            this.Controls.Add(this.Cruiser);
-            this.Controls.Add(this.Shep);
-            this.Controls.Add(this.pictureBoxCruiser);
+            this.Controls.Add(this.groupBoxTake);
+            this.Controls.Add(this.groupBoxLevels);
             this.Name = "FormParking";
             this.Text = "Cruiser";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCruiser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeShip)).EndInit();
+            this.groupBoxLevels.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -146,14 +158,15 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBoxCruiser;
-        private System.Windows.Forms.Button Shep;
+        private System.Windows.Forms.Button Ship;
         private System.Windows.Forms.Button Cruiser;
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
-        private System.Windows.Forms.Label labelTake;
         private System.Windows.Forms.Label labelMesto;
         private System.Windows.Forms.Button TakeOut;
         private System.Windows.Forms.PictureBox pictureBoxTakeShip;
         private System.Windows.Forms.PictureBox pictureBoxParking;
+        private System.Windows.Forms.GroupBox groupBoxTake;
+        private System.Windows.Forms.GroupBox groupBoxLevels;
+        private System.Windows.Forms.ListBox listBoxLevels;
     }
 }
