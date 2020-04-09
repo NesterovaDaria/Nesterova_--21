@@ -36,8 +36,7 @@ namespace WindowsFormsAppCruiser
         {
             MainColor = color;
         }
-       // public abstract void DrawShep(Graphics g);
-       // public abstract void MoveTransport(Direction direction);
+       
         public String GetMainColor()
         {
             return MainColor.Name;
