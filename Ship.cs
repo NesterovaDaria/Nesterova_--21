@@ -14,7 +14,7 @@ namespace WindowsFormsAppCruiser
         /// Ширина отрисовки автомобиля
         protected const int avHeight = 60;
         // Дополнительный цвет
-       // public Color MainColor { private set; get; }
+       
         /// Конструктор
         /// <param name="maxSpeed">Максимальная скорость</param>
         /// <param name="weight">Вес автомобиля</param>
