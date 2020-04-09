@@ -147,7 +147,7 @@ namespace WindowsFormsAppCruiser
             }
             if (Window)
             {
-                // Brush spoiler = new SolidBrush(DopColor);
+               
                 for (int i = 0; i < 3; i++)
                 {
                     g.DrawEllipse(pen, _startPosX + 25 + (10 * i), _startPosY + 3, 5, 5);
