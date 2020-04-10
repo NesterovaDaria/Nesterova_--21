@@ -24,7 +24,7 @@ namespace WindowsFormsAppCruiser
         {
             if (Ship != null)
             {
-                //Console.WriteLine("XColor in DrawShip: " + (Ship as ITransport).GetMainColor());
+                
                 Bitmap bmp = new Bitmap(pictureBox.Width, pictureBox.Height);
                 Graphics gr = Graphics.FromImage(bmp);
                 Ship.SetPosition(15, 25, pictureBox.Width, pictureBox.Height);
