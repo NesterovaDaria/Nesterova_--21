@@ -33,7 +33,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelCruiser = new System.Windows.Forms.Label();
             this.labelShip = new System.Windows.Forms.Label();
-            this.panelCar = new System.Windows.Forms.Panel();
+            this.panelShip = new System.Windows.Forms.Panel();
             this.labelDopColor = new System.Windows.Forms.Label();
             this.labelBaseColor = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -47,7 +47,7 @@
             this.panelred = new System.Windows.Forms.Panel();
             this.panelgray = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -106,8 +106,9 @@
             this.labelShip.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelShip_DragEnter);
             this.labelShip.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lablelShip_MouseDown);
             // 
-            // panelCar
+            // panelShip
             // 
+
             this.panelCar.AllowDrop = true;
             this.panelCar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelCar.Controls.Add(this.labelDopColor);
@@ -120,6 +121,19 @@
             this.panelCar.TabIndex = 2;
             this.panelCar.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelShip_DragDrop);
             this.panelCar.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelShip_DragEnter);
+
+            this.panelShip.AllowDrop = true;
+            this.panelShip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelShip.Controls.Add(this.labelDopColor);
+            this.panelShip.Controls.Add(this.labelBaseColor);
+            this.panelShip.Controls.Add(this.pictureBox);
+            this.panelShip.Location = new System.Drawing.Point(276, 26);
+            this.panelShip.Name = "panelCar";
+            this.panelShip.Size = new System.Drawing.Size(257, 329);
+            this.panelShip.TabIndex = 2;
+            this.panelShip.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelShip_DragDrop);
+            this.panelShip.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelShip_DragEnter);
+
             // 
             // labelDopColor
             // 
@@ -266,8 +280,9 @@
             this.panel1.Size = new System.Drawing.Size(200, 100);
             this.panel1.TabIndex = 0;
             // 
-            // button1
+            // buttonAdd
             // 
+
             this.button1.Location = new System.Drawing.Point(59, 284);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
@@ -276,6 +291,15 @@
             this.button1.Text = "Добавить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.buttonOk_Click);
+
+            this.buttonAdd.Location = new System.Drawing.Point(12, 230);
+            this.buttonAdd.Name = "button1";
+            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.TabIndex = 4;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonOk_Click);
+
             // 
             // buttonnCancel
             // 
@@ -315,7 +339,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label labelCruiser;
         private System.Windows.Forms.Label labelShip;
-        private System.Windows.Forms.Panel panelCar;
+        private System.Windows.Forms.Panel panelShip;
         private System.Windows.Forms.Label labelBaseColor;
         private System.Windows.Forms.GroupBox groupBox2;
         
@@ -329,7 +353,7 @@
         private System.Windows.Forms.Panel panelred;
         private System.Windows.Forms.Panel panelgray;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonnCancel;
         private System.Windows.Forms.Label labelDopColor;
         #region Windows Form Designer generated code
