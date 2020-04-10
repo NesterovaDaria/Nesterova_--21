@@ -9,9 +9,9 @@ namespace WindowsFormsAppCruiser
 {
     public abstract class Vehicle : ITransport
     {
-        // Левая координата отрисовки автомобиля
+        // Левая координата отрисовки
         protected float _startPosX;
-        // Правая кооридната отрисовки автомобиля
+        // Правая кооридната отрисовки
         protected float _startPosY;
         // Ширина окна отрисовки
         protected int _pictureWidth;
@@ -36,6 +36,7 @@ namespace WindowsFormsAppCruiser
         {
             MainColor = color;
         }
+       
         public String GetMainColor()
         {
             return MainColor.Name;

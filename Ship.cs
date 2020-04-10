@@ -23,6 +23,21 @@ namespace WindowsFormsAppCruiser
             Weight = weight;
             MainColor = mainColor;
         }
+
+        // Конструктор
+        //info-Информация по объекту
+        public Ship(string info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
+        }
+
+
         public override void MoveTransport(Direction direction)
         {
             float step = MaxSpeed * 100 / Weight;
@@ -70,6 +85,10 @@ namespace WindowsFormsAppCruiser
             g.DrawLine(pen, _startPosX + 54, _startPosY, _startPosX + 54, _startPosY - 12);
             g.DrawLine(pen, _startPosX + 54, _startPosY - 12, _startPosX + 66, _startPosY - 12);
             g.DrawLine(pen, _startPosX + 66, _startPosY - 12, _startPosX + 66, _startPosY);
+        }
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor.Name;
         }
     }
 }

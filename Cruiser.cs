@@ -31,7 +31,9 @@ namespace WindowsFormsAppCruiser
         /// <param name="dopColor">Дополнительный цвет</param>
         /// <param name="firctLift">Признак наличия переднего лифта</param>
         /// <param name="secondLift">Признак наличия заднего лифта</param>
-        public Cruiser(int maxSpeed, float weight, Color mainColor, Color dopColor, Color dopColor1,
+        /// 
+       
+        public Cruiser(int maxSpeed, float weight,Color mainColor, Color dopColor, Color dopColor1,
        bool orudie, bool truba, bool window, bool flag) :
             base(maxSpeed, weight, mainColor)
         {
@@ -41,7 +43,29 @@ namespace WindowsFormsAppCruiser
             Truba = truba;
             Window = window;
             Flag = flag;
+
+            Random rnd = new Random();
+
         }
+
+        public Cruiser(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 9)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                DopColor1 = Color.FromName(strs[4]);
+                Orudie = Convert.ToBoolean(strs[5]);
+                Truba = Convert.ToBoolean(strs[6]);
+                Window = Convert.ToBoolean(strs[7]);
+                Flag = Convert.ToBoolean(strs[8]);
+                
+            }
+        }
+
         /// <summary>
         /// Установка позиции автомобиля
         /// </summary>
@@ -49,7 +73,7 @@ namespace WindowsFormsAppCruiser
         /// <param name="y">Координата Y</param>
         /// <param name="width">Ширина картинки</param>
         /// <param name="height">Высота картинки</param>
-        
+
         /// Отрисовка 
         public override void Draw(Graphics g)
         {
@@ -89,6 +113,11 @@ namespace WindowsFormsAppCruiser
         public void SetDopColor(Color color)
         {
             DopColor = color;
+        }
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" + DopColor1.Name + ";" +
+           Orudie + ";" + Truba + ";" + Window + ";" + Flag;
         }
     }
 }
