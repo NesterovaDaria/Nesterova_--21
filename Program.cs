@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAppCruiser
 {
+    public delegate void ShipDelegate(ITransport shep);
     static class Program
     {
         /// <summary>

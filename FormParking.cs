@@ -13,6 +13,8 @@ namespace WindowsFormsAppCruiser
     public partial class FormParking : Form
     {
         MultiLevelParking parking;
+        /// Форма для добавления
+        FormShipConfig form;
         // Количество уровней-парковок 
         private const int countLevel = 5;
         public FormParking()
@@ -26,6 +28,7 @@ namespace WindowsFormsAppCruiser
             }
             listBoxLevels.SelectedIndex = 0;
         }
+        
         private void Draw()
         {
             if (listBoxLevels.SelectedIndex > -1)
@@ -38,57 +41,19 @@ namespace WindowsFormsAppCruiser
                 pictureBoxParking.Image = bmp;
             }
         }
-        private void buttonSetShip_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    var shep = new Ship(100, 1000, dialog.Color);
-                    int place = parking[listBoxLevels.SelectedIndex] + shep;
-                    if (place == -1)
-                    {
-                        MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    Draw();
-                }
-            }
-        }
-        private void buttonSetCruiser_Click(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var shep = new Cruiser(100, 1000, dialog.Color, dialogDop.Color,dialogDop.Color, true, true, true, true);
-                        int place = parking[listBoxLevels.SelectedIndex] + shep;
-                        if (place == -1)
-                        {
-                            MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        Draw();
-                    }
-                }
-            }
-        }
         private void buttonTakeShip_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)
             {
                 if (maskedTextBox.Text != "")
                 {
-                    var shep = parking[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBox.Text);
-                    if (shep != null)
+                    var car = parking[listBoxLevels.SelectedIndex] - Convert.ToInt32(maskedTextBox.Text);
+                    if (car != null)
                     {
                         Bitmap bmp = new Bitmap(pictureBoxTakeShip.Width, pictureBoxTakeShip.Height);
                         Graphics gr = Graphics.FromImage(bmp);
-                        shep.SetPosition(15, 15, pictureBoxTakeShip.Width, pictureBoxTakeShip.Height);
-                        shep.Draw(gr);
+                        car.SetPosition(15, 25, pictureBoxTakeShip.Width, pictureBoxTakeShip.Height);
+                        car.Draw(gr);
                         pictureBoxTakeShip.Image = bmp;
                     }
                     else
@@ -103,6 +68,28 @@ namespace WindowsFormsAppCruiser
         private void listBoxLevels_SelectedIndexChanged(object sender, EventArgs e)
         {
             Draw();
+        }
+        private void buttonSet_Click(object sender, EventArgs e)
+        {
+            form = new FormShipConfig();
+            form.AddEvent(AddShip);
+            form.Show();
+        }
+        /// Метод добавления 
+        private void AddShip(ITransport ship)
+        {
+            if (ship != null && listBoxLevels.SelectedIndex > -1)
+            {
+                int place = parking[listBoxLevels.SelectedIndex] + ship;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Не удалось поставить");
+                }
+            }
         }
     }
 }

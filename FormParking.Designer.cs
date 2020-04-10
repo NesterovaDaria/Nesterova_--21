@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Ship = new System.Windows.Forms.Button();
-            this.Cruiser = new System.Windows.Forms.Button();
+            this.buttonSet = new System.Windows.Forms.Button();
             this.maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.labelMesto = new System.Windows.Forms.Label();
             this.TakeOut = new System.Windows.Forms.Button();
@@ -43,25 +42,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.SuspendLayout();
             // 
-            // Ship
+            // buttonSet
             // 
-            this.Ship.Location = new System.Drawing.Point(34, 153);
-            this.Ship.Name = "Ship";
-            this.Ship.Size = new System.Drawing.Size(75, 23);
-            this.Ship.TabIndex = 6;
-            this.Ship.Text = "Shep";
-            this.Ship.UseVisualStyleBackColor = true;
-            this.Ship.Click += new System.EventHandler(this.buttonSetShip_Click);
-            // 
-            // Cruiser
-            // 
-            this.Cruiser.Location = new System.Drawing.Point(34, 195);
-            this.Cruiser.Name = "Cruiser";
-            this.Cruiser.Size = new System.Drawing.Size(75, 23);
-            this.Cruiser.TabIndex = 11;
-            this.Cruiser.Text = "Cruiser";
-            this.Cruiser.UseVisualStyleBackColor = true;
-            this.Cruiser.Click += new System.EventHandler(this.buttonSetCruiser_Click);
+            this.buttonSet.Location = new System.Drawing.Point(23, 188);
+            this.buttonSet.Name = "buttonSet";
+            this.buttonSet.Size = new System.Drawing.Size(75, 23);
+            this.buttonSet.TabIndex = 6;
+            this.buttonSet.Text = "Поставить";
+            this.buttonSet.UseVisualStyleBackColor = true;
+            this.buttonSet.Click += new System.EventHandler(this.buttonSet_Click);
             // 
             // maskedTextBox
             // 
@@ -109,8 +98,7 @@
             // groupBoxLevels
             // 
             this.groupBoxLevels.Controls.Add(this.listBoxLevels);
-            this.groupBoxLevels.Controls.Add(this.Cruiser);
-            this.groupBoxLevels.Controls.Add(this.Ship);
+            this.groupBoxLevels.Controls.Add(this.buttonSet);
             this.groupBoxLevels.Location = new System.Drawing.Point(740, 2);
             this.groupBoxLevels.Name = "groupBoxLevels";
             this.groupBoxLevels.Size = new System.Drawing.Size(144, 237);
@@ -158,8 +146,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button Ship;
-        private System.Windows.Forms.Button Cruiser;
+        private System.Windows.Forms.Button buttonSet;
         private System.Windows.Forms.MaskedTextBox maskedTextBox;
         private System.Windows.Forms.Label labelMesto;
         private System.Windows.Forms.Button TakeOut;
